@@ -1,43 +1,58 @@
-import React, { useState } from 'react';
-import './App.css';
+// ./src/components/DrinkDispenser.tsx
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
-  // State to store the amount of drinks
-  const [drinkAmount, setDrinkAmount] = useState('');
+const DrinkDispenser: React.FC = () => {
+  const [drinkSize, setDrinkSize] = useState<number | undefined>(undefined);
+  const [settings, setSettings] = useState<number[]>([0, 0, 0, 0]);
 
-  // Handler for the input change
-  // const handleInputChange = (event: HTMLClickE) => {
-  //   setDrinkAmount(event.target.value);
-  // };
-
-  // Handlers for buttons
-  const handleGoClick = () => {
-    console.log('Go button clicked');
-    // Additional actions can be defined here
+  const handleSettingChange = (index: number, value: number) => {
+    const newSettings = [...settings];
+    newSettings[index] = value;
+    setSettings(newSettings);
   };
 
-  const handleStopClick = () => {
-    console.log('Stop button clicked');
-    // Additional actions can be defined here
+  const handleGo = () => {
+    console.log("Go pressed");
+    console.log(`Drink Size: ${drinkSize}`);
+    console.log(`Settings: ${settings}`);
+  };
+
+  const handleStop = () => {
+    console.log("Stop pressed");
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome everyone to DrinkDispenser!</h1>
-        <div>
-          <button onClick={handleGoClick}>Go</button>
-          <button onClick={handleStopClick}>Stop</button>
+    <div className="container">
+      <h1 className="header">DrinkDispenser</h1>
+      <label className="label">How big is your drink? (in oz)</label>
+      <input
+        type="number"
+        value={drinkSize}
+        onChange={(e) => setDrinkSize(Number(e.target.value))}
+        className="input"
+      />
+      {[0, 1, 2, 3].map((index) => (
+        <div key={index} className="mb-2">
+          <label className="label">Setting {index + 1}</label>
+          <input
+            type="number"
+            value={settings[index]}
+            onChange={(e) => handleSettingChange(index, Number(e.target.value))}
+            className="input"
+          />
         </div>
-        <div>
-          <label>
-            Enter the amount of drinks:
-            <input type="number" value={drinkAmount}  />
-          </label>
-        </div>
-      </header>
+      ))}
+      <div className="button-container">
+        <button onClick={handleGo} className="button button-go">
+          Go
+        </button>
+        <button onClick={handleStop} className="button button-stop">
+          Stop
+        </button>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default DrinkDispenser;
