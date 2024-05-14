@@ -14,6 +14,7 @@ const DrinkDispenser: React.FC = () => {
 
   const handleGo = () => {
     console.log("Go pressed");
+    console.log("Go pressed");
     console.log(`Drink Size: ${drinkSize}`);
     console.log(`Settings: ${settings}`);
   };
