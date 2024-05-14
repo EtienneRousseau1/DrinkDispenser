@@ -1,69 +1,160 @@
-/* ./src/App.css */
-.container {
-  padding: 1rem;
-  max-width: 90%;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d4b89a;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .header {
-  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #4e3629;
+  color: #fff;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 1rem;
+}
+
+.drink-select {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  flex: 1;
+}
+
+.drink-select h2 {
+  margin-top: 20px;
+}
+
+.drink-select p {
+  margin: 10px 0;
+  margin-right: 30px;
+}
+
+.selected-drink-info {
+  color: #999;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.col-md-6 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-drink-container {
   text-align: center;
 }
 
-.label {
-  display: block;
-  color: #4a4a4a;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+.selected-drink {
+  font-weight: 700;
 }
 
-.input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #4a4a4a;
-}
-
-.button-container {
+.percentage-buttons-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
 
-.button {
-  flex: 1;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: bold;
+.percentage-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.percentage-button {
+  background-color: #eee;
   border: none;
-  border-radius: 4px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  margin: 10px 0;
   cursor: pointer;
-  margin: 0 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.button-go {
-  background-color: #4299e1;
-  color: white;
+.percentage-button.selected {
+  background-color: #ccc;
 }
 
-.button-go:hover {
-  background-color: #3182ce;
+.placeholder {
+  width: 100%;
+  height: 50px;
+  background-color: #ddd;
+  margin-top: 20px;
 }
 
-.button-stop {
-  background-color: #f56565;
-  color: white;
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #563627;
 }
 
-.button-stop:hover {
-  background-color: #e53e3e;
+.footer-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-button.home::before {
+  content: '\1F3E0'; /* Unicode for home icon */
+}
+
+.footer-button.search::before {
+  content: '\1F50D'; /* Unicode for search icon */
+}
+
+.footer-button.cart::before {
+  content: '\1F6D2'; /* Unicode for cart icon */
+}
+
+.footer-button.notification::before {
+  content: '\1F514'; /* Unicode for notification icon */
+}
+
+.footer-button.menu::before {
+  content: '\2630'; /* Unicode for menu icon */
+}
+
+.footer-button::before {
+  font-size: 24px;
+  color: #fff;
 }
