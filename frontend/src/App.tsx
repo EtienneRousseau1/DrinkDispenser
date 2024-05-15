@@ -1,13 +1,11 @@
 import React from 'react';
-import DrinkSelect from './DrinkSelect';
+import DrinkSelect from './Pages/DrinkSelect';
 import './App.css';
-import DrinkOption from './DrinkOption/DrinkOption';
-import PercentageSelector from './PercentageSelector/PercentageSelector';
+import DrinkOption from './Pages/DrinkOptions';
+import PercentageSelector from './Pages/PercentageSelector';
 import DUEN from './images/DUEN.png'
 import Water from './images/Water.png'
 import Juice from './images/Juice.png'
-
-
 
 const App: React.FC = () => {
   return (
