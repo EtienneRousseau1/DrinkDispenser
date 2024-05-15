@@ -24,7 +24,7 @@ const DrinkOption: React.FC = () => {
     <div>
       <div>
         <h1 className="text-3xl">Step One</h1>
-        <h2 className="text-xl text-slate-400 text-left">Choose which you would like</h2>
+        <h2 className="text-xl text-slate-400 text-left">Choose which drink you would like (Select one)</h2>
       </div>
       <div className="flex">
         {drinks.map((drink, index) => (
