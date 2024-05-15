@@ -1,22 +1,24 @@
 import React from 'react';
 import DrinkSelect from './DrinkSelect';
 import './App.css';
+import DrinkOption from './DrinkOption/DrinkOption';
+import PercentageSelector from './PercentageSelector/PercentageSelector';
+import DUEN from './images/DUEN.png'
+import Water from './images/Water.png'
+import Juice from './images/Juice.png'
+
+
 
 const App: React.FC = () => {
   return (
     <div className="app">
       <header className="header">
         <button className="back-button">&lt;</button>
-        <div className="logo">DUEN</div>
+        <div className="logo"> <img src = {DUEN} alt = "DUEN" /> </div>
       </header>
-      <DrinkSelect />
-      <footer className="footer">
-        <button className="footer-button home"></button>
-        <button className="footer-button search"></button>
-        <button className="footer-button cart"></button>
-        <button className="footer-button notification"></button>
-        <button className="footer-button menu"></button>
-      </footer>
+      <DrinkOption />
+      {/* <PercentageSelector /> */}
+     
     </div>
   );
 };

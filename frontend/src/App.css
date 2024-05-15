@@ -6,7 +6,6 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #d4b89a;
   color: #333;
 }
 
@@ -21,16 +20,13 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 10px 20px;
-  background-color: #4e3629;
-  color: #fff;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 24px;
   cursor: pointer;
 }
@@ -38,6 +34,8 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
+  align-items: center;
+  justify-content: center;
 }
 
 .drink-select {
