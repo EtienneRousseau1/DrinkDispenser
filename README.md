@@ -9,6 +9,10 @@ Welcome to Drink Dispenser. This is a skelton layout with React Native and a CPP
    ```sh
    git clone https://github.com/EtienneRousseau1/DrinkDispenser
    ```
+3. Go into frontend folder
+    ```sh
+    cd frontend
+   ```
 3. Install NPM packages
    ```sh
    npm install
