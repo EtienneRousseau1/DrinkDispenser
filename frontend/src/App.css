@@ -1,69 +1,25 @@
-/* ./src/App.css */
-.container {
-  padding: 1rem;
-  max-width: 90%;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.label {
-  display: block;
-  color: #4a4a4a;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #4a4a4a;
-}
-
-.button-container {
+.header1 {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  align-items: center;
+  justify-content: space-between; /* Ensures the back button and the logo are aligned correctly */
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
-.button {
-  flex: 1;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: bold;
+.back-button {
+  background: none;
   border: none;
-  border-radius: 4px;
+  font-size: 24px;
   cursor: pointer;
-  margin: 0 0.5rem;
 }
 
-.button-go {
-  background-color: #4299e1;
-  color: white;
+.logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Center the logo horizontally */
 }
 
-.button-go:hover {
-  background-color: #3182ce;
-}
-
-.button-stop {
-  background-color: #f56565;
-  color: white;
-}
-
-.button-stop:hover {
-  background-color: #e53e3e;
+.logo img {
+  max-height: 50px; /* Adjust the size of the logo as needed */
 }
