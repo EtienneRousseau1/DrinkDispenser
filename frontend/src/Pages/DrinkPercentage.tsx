@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDrink } from './DrinkContext';
 
 const DrinkPercentage: React.FC = () => {
-  const { selectedDrink } = useDrink();
+  const { selectedDrink, addSelectedDrink } = useDrink();
   const [selectedPercentage, setSelectedPercentage] = useState<number>(0);
+  const navigate = useNavigate();
+
+  const handleSelectPercentage = (percentage: number) => {
+    const success = addSelectedDrink({ name: selectedDrink, percentage });
+    if (success) {
+      navigate('/');
+    }
+  };
 
   return (
     <div className="p-4">
@@ -19,7 +28,7 @@ const DrinkPercentage: React.FC = () => {
             <button
               key={percentage}
               className={`px-4 py-2 border rounded ${selectedPercentage === percentage ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
-              onClick={() => setSelectedPercentage(percentage)}
+              onClick={() => handleSelectPercentage(percentage)}
             >
               {percentage}%
             </button>

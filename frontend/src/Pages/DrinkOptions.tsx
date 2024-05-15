@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import Juice from '../images/Juice.png';
 import Water from '../images/Water.png';
 import Soda from '../images/Soda.png';
@@ -24,11 +23,9 @@ const DrinkOption: React.FC = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1 className="text-3xl">Step one:</h1>
-        <h2 className="text-xl text-slate-400 text-left">Choose which drink you would like (Select one)</h2>
-      </div>
+    <div className="p-4">
+      <h1 className="text-3xl">Step one:</h1>
+      <h2 className="text-xl text-slate-400 text-left">Choose which drink you would like (Select one)</h2>
       <div className="flex space-x-4">
         {drinks.map((drink, index) => (
           <div key={index} onClick={() => handleDrinkSelect(drink.title)} className="cursor-pointer">
