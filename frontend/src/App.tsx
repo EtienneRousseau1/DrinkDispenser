@@ -11,14 +11,14 @@ import Juice from './images/Juice.png'
 
 const App: React.FC = () => {
   return (
-    <div className="">
+    <div className="container">
       <header className="header1">
         <button className="back-button">&lt;</button>
-        <div className="logo"> <img src = {DUEN} alt = "DUEN" /> </div>
+        <div className="logo">
+          <img src={DUEN} alt="DUEN" />
+        </div>
       </header>
       <DrinkOption />
-      {/* <PercentageSelector /> */}
-     
     </div>
   );
 };

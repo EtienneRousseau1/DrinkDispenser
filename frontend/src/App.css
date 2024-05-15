@@ -1,158 +1,25 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-}
-
 .header1 {
-  width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between; /* Ensures the back button and the logo are aligned correctly */
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: black;
   font-size: 24px;
   cursor: pointer;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  align-items: center;
-  justify-content: center;
-}
-
-.drink-select {
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  flex: 1;
-}
-
-.drink-select h2 {
-  margin-top: 20px;
-}
-
-.drink-select p {
-  margin: 10px 0;
-  margin-right: 30px;
-}
-
-.selected-drink-info {
-  color: #999;
-}
-
-.row {
+  flex-grow: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+  justify-content: center; /* Center the logo horizontally */
 }
 
-.col-md-6 {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.selected-drink-container {
-  text-align: center;
-}
-
-.selected-drink {
-  font-weight: 700;
-}
-
-.percentage-buttons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.percentage-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.percentage-button {
-  background-color: #eee;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 18px;
-  margin: 10px 0;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.percentage-button.selected {
-  background-color: #ccc;
-}
-
-.placeholder {
-  width: 100%;
-  height: 50px;
-  background-color: #ddd;
-  margin-top: 20px;
-}
-
-.footer {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  background-color: #563627;
-}
-
-.footer-button {
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.footer-button.home::before {
-  content: '\1F3E0'; /* Unicode for home icon */
-}
-
-.footer-button.search::before {
-  content: '\1F50D'; /* Unicode for search icon */
-}
-
-.footer-button.cart::before {
-  content: '\1F6D2'; /* Unicode for cart icon */
-}
-
-.footer-button.notification::before {
-  content: '\1F514'; /* Unicode for notification icon */
-}
-
-.footer-button.menu::before {
-  content: '\2630'; /* Unicode for menu icon */
-}
-
-.footer-button::before {
-  font-size: 24px;
-  color: #fff;
+.logo img {
+  max-height: 50px; /* Adjust the size of the logo as needed */
 }
