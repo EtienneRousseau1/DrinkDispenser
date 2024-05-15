@@ -6,10 +6,10 @@ import Soda from '../images/Soda.png';
 import Coffee from "../images/Coffee.png";
 
 const drinks = [
-  { src: Water, alt: 'Water', title: 'Water', description: 'Pure and simple water, essential for hydration and well-being.' },
-  { src: Juice, alt: 'Juice', title: 'Juice', description: 'This is a refreshing juice, perfect for a healthy and tasty beverage option.' },
-  { src: Soda, alt: 'Soda', title: 'Soda', description: 'A fizzy and refreshing drink to quench your thirst.' },
-  { src: Coffee, alt: 'Coffee', title: 'Coffee', description: 'A rich and aromatic coffee, perfect for a quick energy boost.' },
+  { src: Water, alt: 'Water', title: 'Water'},
+  { src: Juice, alt: 'Juice', title: 'Juice'},
+  { src: Soda, alt: 'Soda', title: 'Soda'},
+  { src: Coffee, alt: 'Coffee', title: 'Coffee'},
 ];
 
 const percentages = [
@@ -32,14 +32,13 @@ const DrinkOption: React.FC = () => {
             <img className="h-48 w-48 rounded-lg" src={drink.src} alt={drink.alt} />
             <div>
               <h2>{drink.title}</h2>
-              <p>{drink.description}</p>
             </div>
           </div>
         ))}
       </div>
       <div>
         <h1 className="text-3xl">Percentages</h1>
-        <h2 className="text-xl text-slate-400 text-left">How much liquid do you want?</h2>
+        <h2 className="text-xl text-slate-400 text-left">How much liquid do you want? (Select one)</h2>
       </div>
       <div className="flex"> 
         {percentages.map((percentage, index) => (
