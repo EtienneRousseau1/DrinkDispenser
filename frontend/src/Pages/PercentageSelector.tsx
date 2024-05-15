@@ -1,5 +1,5 @@
 import React from 'react';
-import './PercentageSelector.css';
+import '../index.css';
 
 interface PercentageSelectorProps {
   onSelect: (percentage: number) => void;

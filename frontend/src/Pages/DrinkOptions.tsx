@@ -1,5 +1,5 @@
 import React from 'react';
-import './DrinkOption.css';
+import '../index.css';
 import Juice from '../images/Juice.png';
 import Water from '../images/Water.png';
 import Soda from '../images/Soda.png';
