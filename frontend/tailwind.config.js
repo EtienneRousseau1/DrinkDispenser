@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+
+    fontFamily: {
+      'Lexend': ['Lexend', 'sans-serif']
+    },
   },
   plugins: [],
 }

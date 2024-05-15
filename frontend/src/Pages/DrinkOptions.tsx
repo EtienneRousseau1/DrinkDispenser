@@ -5,6 +5,12 @@ import Water from '../images/Water.png';
 import Soda from '../images/Soda.png';
 import Coffee from "../images/Coffee.png";
 
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+  </style>
+</head>
+
 const drinks = [
   { src: Water, alt: 'Water', title: 'Water'},
   { src: Juice, alt: 'Juice', title: 'Juice'},
@@ -23,7 +29,7 @@ const DrinkOption: React.FC = () => {
   return (
     <div>
       <div>
-        <h1 className="text-3xl">Step One</h1>
+        <h1 className="text-3xl">Step one:</h1>
         <h2 className="text-xl text-slate-400 text-left">Choose which drink you would like (Select one)</h2>
       </div>
       <div className="flex">
@@ -37,7 +43,7 @@ const DrinkOption: React.FC = () => {
         ))}
       </div>
       <div>
-        <h1 className="text-3xl">Percentages</h1>
+        <h1 className="text-3xl">Step two:</h1>
         <h2 className="text-xl text-slate-400 text-left">How much liquid do you want? (Select one)</h2>
       </div>
       <div className="flex"> 
@@ -45,7 +51,7 @@ const DrinkOption: React.FC = () => {
           <div key={index}>
             <img className="h-48 w-48 rounded-lg" src={percentage.src} alt={percentage.alt} />
             <div>
-              <p>{percentage.label}</p>
+              <p className="text-center font-Lexend">{percentage.label}</p>
             </div>
           </div>
         ))}
