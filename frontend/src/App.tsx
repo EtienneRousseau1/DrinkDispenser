@@ -11,7 +11,7 @@ import Juice from './images/Juice.png'
 
 const App: React.FC = () => {
   return (
-    <div className="container">
+    <div className="text-xl">
       <header className="header1">
         <button className="back-button">&lt;</button>
         <div className="logo">
