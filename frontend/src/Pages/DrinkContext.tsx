@@ -10,6 +10,7 @@ interface DrinkContextProps {
   selectedDrink: string;
   setSelectedDrink: React.Dispatch<React.SetStateAction<string>>;
   addSelectedDrink: (drink: SelectedDrink) => boolean;
+  totalPercentage: number;
 }
 
 const DrinkContext = createContext<DrinkContextProps | undefined>(undefined);
@@ -18,9 +19,10 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [selectedDrinks, setSelectedDrinks] = useState<SelectedDrink[]>([]);
   const [selectedDrink, setSelectedDrink] = useState<string>('Coffee');
 
+  const totalPercentage = selectedDrinks.reduce((acc, curr) => acc + curr.percentage, 0);
+
   const addSelectedDrink = (drink: SelectedDrink) => {
-    const totalPercentage = selectedDrinks.reduce((acc, curr) => acc + curr.percentage, 0) + drink.percentage;
-    if (totalPercentage > 100) {
+    if (totalPercentage + drink.percentage > 100) {
       alert("Total percentage cannot exceed 100%");
       return false;
     }
@@ -29,7 +31,7 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   return (
-    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink }}>
+    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, totalPercentage }}>
       {children}
     </DrinkContext.Provider>
   );
