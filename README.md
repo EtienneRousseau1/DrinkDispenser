@@ -1,6 +1,10 @@
 ### DUEN - Drink Dispenser
 
-Welcome to Drink Dispenser. This is a skelton layout with React Native and a CPP backend with nothing in it yet
+Welcome to Drink Dispenser. This is the website that allows anyone to get access to a mixed drink of their choice based off certain preset choices. For instance, you can get 25% water, 25% juice and much more! Below we have the instructions of how to run the website. This is currently running the frontend.
+
+### Language
+
+This was built with a React Typescript Frontend with Tailwind CSS. We are then using an Arduino to connect the frontend of our website to the physical drink dispenser component.
 
 ### Getting Started:
 
