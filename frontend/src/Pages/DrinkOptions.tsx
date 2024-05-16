@@ -13,7 +13,7 @@ const drinks = [
   { src: Coffee, alt: 'Coffee', title: 'Coffee', description: 'Rich and aromatic coffee to energize your day.' },
 ];
 
-const DrinkOption: React.FC = () => {
+const DrinkOptions: React.FC = () => {
   return (
     <div className="h-screen flex item-center justify-center">
       <div className="m-auto">
@@ -24,5 +24,5 @@ const DrinkOption: React.FC = () => {
   );
 }
 
-export default DrinkOption;
+export default DrinkOptions;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import DrinkOption from './Pages/DrinkOption';
+import DrinkOptions from './Pages/DrinkOptions';
 import Header from './Components/Header';
 import Option from './Components/Option';
 
@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <div >
       <Header />
       <div className="h-screen">
-        <DrinkOption/>
+        <DrinkOptions/>
       </div>
     </div>
   );
