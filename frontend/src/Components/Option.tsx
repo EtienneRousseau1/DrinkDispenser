@@ -19,7 +19,7 @@ const Option: React.FC<OptionProps> = ({drinks }) => {
           <div key={index}>
             <img className="h-20 w-20 rounded-lg" src={drink.src} alt={drink.alt} />
             <div>
-              <h2>{drink.title}</h2>
+              <h2 className="text-center">{drink.title}</h2>
             </div>
           </div>
         ))}

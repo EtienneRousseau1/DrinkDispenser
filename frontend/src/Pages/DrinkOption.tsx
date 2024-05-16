@@ -15,11 +15,9 @@ const drinks = [
 
 const DrinkOption: React.FC = () => {
   return (
-    <div>
-      <div>
-        <h1 className="h-screen h-screen flex item-center justify-center flex text-center text-xl"> Please select a drink </h1>
-      </div>
-      <div>
+    <div className="h-screen flex item-center justify-center">
+      <div className="m-auto">
+        <header className="text-center text-xl"> Please select a drink </header>
         <Option drinks={drinks} />
       </div>
     </div>
