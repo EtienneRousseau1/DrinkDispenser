@@ -17,10 +17,11 @@ const DrinkOption: React.FC = () => {
   return (
     <div>
       <div>
-        <h1 className="text-3xl">Step one:</h1>
-        <h2 className="text-xl text-slate-400 text-left">Choose which drink you would like (Select one)</h2>
+        <h1 className="h-screen h-screen flex item-center justify-center flex text-center text-xl"> Please select a drink </h1>
       </div>
-      <Option drinks={drinks} />
+      <div>
+        <Option drinks={drinks} />
+      </div>
     </div>
   );
 }

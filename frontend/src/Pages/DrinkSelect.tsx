@@ -20,8 +20,7 @@ const DrinkSelect: React.FC = () => {
               <button
                 key={percentage}
                 className={`percentage-button ${selectedPercentage === percentage ? 'selected' : ''}`}
-                onClick={() => setSelectedPercentage(percentage)}
-              >
+                onClick={() => setSelectedPercentage(percentage)}>
                 {percentage}%
               </button>
             ))}
