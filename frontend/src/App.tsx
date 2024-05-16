@@ -1,16 +1,13 @@
 import React from 'react';
 import './index.css';
-import DrinkOptions from './Pages/DrinkOptions';
 import Header from './Components/Header';
-import Option from './Components/Option';
+import AppRouter from './AppRouter';
 
 const App: React.FC = () => {
   return (
-    <div >
+    <div className="h-screen">
       <Header />
-      <div className="h-screen">
-        <DrinkOptions/>
-      </div>
+      <AppRouter />
     </div>
   );
 };
