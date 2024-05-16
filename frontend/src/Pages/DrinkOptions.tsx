@@ -4,6 +4,7 @@ import Water from '../images/Water.png';
 import Soda from '../images/Soda.png';
 import Coffee from '../images/Coffee.png';
 import Option from '../Components/Option';
+import SelectedDrinks from '../Components/SelectedDrinks';
 
 const drinks = [
   { src: Water, alt: 'Water', title: 'Water' },
@@ -18,6 +19,7 @@ const DrinkOptions: React.FC = () => {
       <div className="m-auto">
         <header className="text-center text-xl"> Please select a drink </header>
         <Option drinks={drinks} />
+        <SelectedDrinks />
         </div>
     </div>
   );
