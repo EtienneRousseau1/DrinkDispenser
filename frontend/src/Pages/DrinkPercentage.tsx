@@ -12,7 +12,7 @@ const DrinkPercentage: React.FC = () => {
     const success = addSelectedDrink({ name: selectedDrink, percentage });
     if (success) {
       setSelectedPercentage(percentage); // Update the selected percentage
-      navigate('/');
+      navigate('/drinkOption');
     }
   };
 
