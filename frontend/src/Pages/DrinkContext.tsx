@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, ReactNode, useContext } from 'react';
 
 interface SelectedDrink {
@@ -11,6 +12,7 @@ interface DrinkContextProps {
   setSelectedDrink: React.Dispatch<React.SetStateAction<string>>;
   addSelectedDrink: (drink: SelectedDrink) => boolean;
   removeDrink: (name: string) => void;
+  clearAllDrinks: () => void; // New function to clear all drinks
   totalPercentage: number;
 }
 
@@ -35,8 +37,12 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     setSelectedDrinks((prevDrinks) => prevDrinks.filter(drink => drink.name !== name));
   };
 
+  const clearAllDrinks = () => {
+    setSelectedDrinks([]);
+  };
+
   return (
-    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, removeDrink, totalPercentage }}>
+    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, removeDrink, clearAllDrinks, totalPercentage }}>
       {children}
     </DrinkContext.Provider>
   );
@@ -49,3 +55,4 @@ export const useDrink = (): DrinkContextProps => {
   }
   return context;
 };
+

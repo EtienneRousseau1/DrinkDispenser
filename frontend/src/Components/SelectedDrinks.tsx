@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { useDrink } from '../Pages/DrinkContext'; // Adjust the import path as necessary
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SelectedDrinks: React.FC = () => {
   const { selectedDrinks, totalPercentage } = useDrink();
   const [dispensing, setDispensing] = useState(false);
+  const navigate = useNavigate();
 
   const handleGoClick = () => {
     setDispensing(true);
-    // Simulate drink dispensing process
-    setTimeout(() => {
-      setDispensing(false);
-      alert('Drink dispensed!');
-    }, 2000); // Dispense for 2 seconds
+    navigate('/confirmation'); // Navigate to the confirmation page
   };
 
   return (
@@ -36,7 +33,7 @@ const SelectedDrinks: React.FC = () => {
               className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700'
               disabled={dispensing}
             >
-              {dispensing ? 'Dispensing drink currently...' : 'Go'}
+              {dispensing ? 'Dispensing drink currently...' : 'Checkout'}
             </button>
             <Link to="/remove" className='ml-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700'>
               Delete
