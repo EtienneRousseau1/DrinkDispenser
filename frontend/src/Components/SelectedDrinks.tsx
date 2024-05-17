@@ -13,19 +13,19 @@ const SelectedDrinks: React.FC = () => {
   };
 
   return (
-    <div className='p-4 bg-white shadow-md rounded-lg'>
+    <div className='p-4 bg-white shadow-md rounded-lg mx-8'>
       <h2 className='text-xl font-semibold mb-4 font-body'>Selected Drinks</h2>
       {selectedDrinks.length > 0 ? (
         <>
           <ul>
             {selectedDrinks.map((drink, index) => (
               <li key={index} className='mb-2'>
-                <span className='font-bold '>{drink.name}</span> - <span className='text-blue-600'>{drink.percentage}%</span>
+                <span className='font-bold font-body'>{drink.name}</span> - <span className='text-blue-600'>{drink.percentage}%</span>
               </li>
             ))}
           </ul>
           <div className='mt-4'>
-            <p className='text-lg font-semibold'>Total Percentage: <span className='text-blue-600'>{totalPercentage}%</span></p>
+            <p className='text-lg font-semibold font-body'>Total Percentage: <span className='text-blue-600'>{totalPercentage}%</span></p>
           </div>
           <div className='mt-4'>
             <button 

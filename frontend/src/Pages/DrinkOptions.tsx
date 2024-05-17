@@ -14,14 +14,15 @@ const drinks = [
 
 const DrinkOptions: React.FC = () => {
   return (
-    <div className="h-screen flex item-center justify-center gap-x-16">
+    <div className="h-screen flex item-center justify-center gap-x-16 mx-8">
       <div className="m-auto">
-        <header className="text-center text-3xl"> Please select a drink </header>
+        <header className="text-center text-5xl pb-8 font-semibold font-body text-duen-plum"> Please select a drink </header>
         <Option drinks={drinks} />
         <SelectedDrinks />
         </div>
     </div>
   );
 }
+
 
 export default DrinkOptions;
