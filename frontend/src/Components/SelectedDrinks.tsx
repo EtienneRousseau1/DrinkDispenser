@@ -39,7 +39,8 @@ const SelectedDrinks: React.FC = () => {
             >
               {dispensing ? 'Dispensing drink currently...' : 'Go'}
             </button>
-            <Link to="/remove" className='ml-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700'>
+         
+            <Link to="/remove" className='ml-4 px-4 py-2 rounded' style={{ backgroundColor: '#ef4444', color: '#ffffff',  }}>
               Delete
             </Link>
           </div>
