@@ -41,7 +41,7 @@ const Option: React.FC<OptionProps> = ({drinks }) => {
          </div>
          <div className='flex justify-center items-center p-4'>
   {personalSelectedDrink ? (
-    <div>
+    <div className='flex flex-col justify-center items-center'>
       <p className='text-lg font-semibold mb-2'>Your Selected Drink:</p>
       <p className='text-blue-600 font-bold mb-4'>{personalSelectedDrink}</p>
       <button 
