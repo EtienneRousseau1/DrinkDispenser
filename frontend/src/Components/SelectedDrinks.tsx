@@ -17,13 +17,13 @@ const SelectedDrinks: React.FC = () => {
 
   return (
     <div className='p-4 bg-white shadow-md rounded-lg'>
-      <h2 className='text-xl font-semibold mb-4'>Selected Drinks</h2>
+      <h2 className='text-xl font-semibold mb-4 font-body'>Selected Drinks</h2>
       {selectedDrinks.length > 0 ? (
         <>
           <ul>
             {selectedDrinks.map((drink, index) => (
               <li key={index} className='mb-2'>
-                <span className='font-bold'>{drink.name}</span> - <span className='text-blue-600'>{drink.percentage}%</span>
+                <span className='font-bold '>{drink.name}</span> - <span className='text-blue-600'>{drink.percentage}%</span>
               </li>
             ))}
           </ul>
