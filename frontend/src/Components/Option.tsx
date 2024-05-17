@@ -29,12 +29,12 @@ const Option: React.FC<OptionProps> = ({drinks }) => {
 
   return (
     <div>
-      <div className="flex px-16">
+      <div className="flex px-16 gap-8">
         {drinks.map((drink, index) => (
         <div key={index} onClick={() => handleDrinkSelect(drink.title)} className={`cursor-pointer ${totalPercentage >= 100 ? 'opacity-50 cursor-not-allowed' : ''}`}>
             <img className="h-20 w-20 rounded-lg" src={drink.src} alt={drink.alt} />
             <div>
-              <h2 className="text-center">{drink.title}</h2>
+              <h2 className="text-center font-body">{drink.title}</h2>
             </div>
           </div>
         ))}
