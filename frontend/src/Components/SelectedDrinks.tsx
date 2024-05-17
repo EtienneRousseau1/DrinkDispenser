@@ -6,6 +6,7 @@ const SelectedDrinks: React.FC = () => {
   const { selectedDrinks, totalPercentage } = useDrink();
   const [dispensing, setDispensing] = useState(false);
 
+  // Send HTTP request here
   const handleGoClick = () => {
     setDispensing(true);
     // Simulate drink dispensing process
