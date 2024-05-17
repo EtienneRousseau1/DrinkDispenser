@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      'Lexend': ['Lexend Deca', 'sans-serif'], 
+        body: ['Lexend']
     },
   },
   plugins: [],
