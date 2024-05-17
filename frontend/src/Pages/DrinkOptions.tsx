@@ -1,23 +1,22 @@
-import React from 'react';
-import Juice from '../images/Juice.png';
-import Water from '../images/Water.png';
-import Soda from '../images/Soda.png';
-import Coffee from '../images/Coffee.png';
+import Apple from '../images/Apple.png';
+import Gwater from '../images/Gwater.png';
+import Cran from '../images/Cran.png';
+import Lemonade from '../images/Lemonade.png';
 import Option from '../Components/Option';
 import SelectedDrinks from '../Components/SelectedDrinks';
 
 const drinks = [
-  { src: Water, alt: 'Water', title: 'Water' },
-  { src: Juice, alt: 'Juice', title: 'Juice' },
-  { src: Soda, alt: 'Soda', title: 'Soda' },
-  { src: Coffee, alt: 'Coffee', title: 'Coffee' },
+  { src: Gwater, alt: 'Water', title: 'Water' },
+  { src: Apple, alt: 'Apple Juice', title: 'Apple Juice' },
+  { src: Cran, alt: 'Cranberry Juice', title: 'Cranberry Juice' },
+  { src: Lemonade, alt: 'Lemonade', title: 'Lemonade' },
 ];
 
 const DrinkOptions: React.FC = () => {
   return (
-    <div className="h-screen flex item-center justify-center">
+    <div className="h-screen flex item-center justify-center gap-x-16">
       <div className="m-auto">
-        <header className="text-center text-xl"> Please select a drink </header>
+        <header className="text-center text-3xl"> Please select a drink </header>
         <Option drinks={drinks} />
         <SelectedDrinks />
         </div>
@@ -26,4 +25,3 @@ const DrinkOptions: React.FC = () => {
 }
 
 export default DrinkOptions;
-
