@@ -12,13 +12,13 @@ const Confirmation: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold">Confirmation</h2>
-      <p className="mt-2">Success..kinda</p>
-      <p className="mt-2">Your drink taste like dog poop</p>
+    <div className="flex flex-col items-center justify-center h-full">
+      <h2 className="text-4xl font-bold text-center mb-8">Confirmation</h2>
+      <p className="text-xl text-center mt-2">Success..kinda</p>
+      <p className="text-xl text-center mt-2">Your drink taste like dog poop</p>
       <button 
         onClick={handleNavigate} 
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-4 px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600"
       >
         Make another drink
       </button>

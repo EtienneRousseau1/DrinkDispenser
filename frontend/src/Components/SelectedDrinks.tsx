@@ -7,6 +7,7 @@ const SelectedDrinks: React.FC = () => {
   const [dispensing, setDispensing] = useState(false);
   const navigate = useNavigate();
 
+  // Send HTTP request here
   const handleGoClick = () => {
     setDispensing(true);
     navigate('/confirmation'); // Navigate to the confirmation page
