@@ -2,11 +2,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
 import DUEN from '../images/DUEN.png';
+import { useDrink } from '../Pages/DrinkContext';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
+  const { clearAllDrinks } = useDrink();
 
   const handleLogoClick = () => {
+    clearAllDrinks();
     navigate('/');
   };
 

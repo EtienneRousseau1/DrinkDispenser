@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, ReactNode, useContext } from 'react';
 
 interface SelectedDrink {
@@ -13,8 +12,10 @@ interface DrinkContextProps {
   setSelectedDrinks: React.Dispatch<React.SetStateAction<SelectedDrink[]>>; 
   addSelectedDrink: (drink: SelectedDrink) => boolean;
   removeDrink: (name: string) => void;
-  clearAllDrinks: () => void; // New function to clear all drinks
+  clearAllDrinks: () => void;
   totalPercentage: number;
+  cupVolume: number;
+  setCupVolume: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const DrinkContext = createContext<DrinkContextProps | undefined>(undefined);
@@ -22,6 +23,7 @@ const DrinkContext = createContext<DrinkContextProps | undefined>(undefined);
 export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [selectedDrinks, setSelectedDrinks] = useState<SelectedDrink[]>([]);
   const [selectedDrink, setSelectedDrink] = useState<string>('Coffee');
+  const [cupVolume, setCupVolume] = useState<number>(0); // Add this state
 
   const totalPercentage = selectedDrinks.reduce((acc, curr) => acc + curr.percentage, 0);
 
@@ -43,7 +45,18 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   return (
-    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, removeDrink, clearAllDrinks, totalPercentage, setSelectedDrinks}}>
+    <DrinkContext.Provider value={{ 
+      selectedDrinks, 
+      selectedDrink, 
+      setSelectedDrink, 
+      addSelectedDrink, 
+      removeDrink, 
+      clearAllDrinks, 
+      totalPercentage, 
+      setSelectedDrinks,
+      cupVolume, 
+      setCupVolume
+    }}>
       {children}
     </DrinkContext.Provider>
   );

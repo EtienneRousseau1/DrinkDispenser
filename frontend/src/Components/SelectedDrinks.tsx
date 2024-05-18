@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDrink } from '../Pages/DrinkContext'; // Adjust the import path as necessary
+import { useDrink } from '../Pages/DrinkContext';
 import { Link } from 'react-router-dom';
-
 
 const SelectedDrinks: React.FC = () => {
   const ipAddress = "192.168.1.50";
   const DISPENSING_FACTOR = 10000;
-  const { selectedDrinks, totalPercentage } = useDrink();
+  const { selectedDrinks, totalPercentage, cupVolume } = useDrink();
   const [dispensing, setDispensing] = useState(false);
   const [id, setId] = useState(1);
+  const navigate = useNavigate();
 
   const openValve = async (valveNum: number, duration: number, id: number) => {
     const url = `http://${ipAddress}/dispenseDrink/${valveNum}${id}${duration.toString().padStart(4, '0')}`;
@@ -28,25 +28,27 @@ const SelectedDrinks: React.FC = () => {
     }
   };
 
-  // Send HTTP request here
   const handleGoClick = async () => {
     setDispensing(true);
-    
+
     for (let index = 0; index < selectedDrinks.length; index++) {
       const drink = selectedDrinks[index];
-      const valveNum = index; 
-      const duration = Math.round((drink.percentage / totalPercentage) * DISPENSING_FACTOR); 
-      const currentId = id + index; // Use the index to ensure unique id for each request
+      const valveNum = index;
+      const duration = Math.round((drink.percentage / totalPercentage) * (cupVolume / 100) * DISPENSING_FACTOR);
+      const currentId = id + index;
+
+      const calculatedVolume = (drink.percentage / 100) * cupVolume;
+      console.log(`Drink: ${drink.name}, Percentage: ${drink.percentage}%, Calculated Volume: ${calculatedVolume.toFixed(2)}ml, Duration: ${duration}, Cup Volume: ${cupVolume}ml`);
 
       await openValve(valveNum, duration, currentId);
       setId(prevId => prevId + 1);
     }
-  
-    // Adjust the timeout to match the duration
+
     setTimeout(() => {
       setDispensing(false);
       alert('Drink dispensed!');
-    }, DISPENSING_FACTOR * 100); // Convert tenths of a second to milliseconds
+      navigate('/confirmation');
+    }, DISPENSING_FACTOR * 100); // Adjust the timeout as needed
   };
 
   return (
@@ -72,8 +74,7 @@ const SelectedDrinks: React.FC = () => {
             >
               {dispensing ? 'Dispensing drink currently...' : 'Dispense'}
             </button>
-         
-            <Link to="/remove" className='ml-4 px-4 py-2 rounded' style={{ backgroundColor: '#ef4444', color: '#ffffff',  }}>
+            <Link to="/remove" className='ml-4 px-4 py-2 rounded' style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
               Delete
             </Link>
           </div>
@@ -86,3 +87,4 @@ const SelectedDrinks: React.FC = () => {
 };
 
 export default SelectedDrinks;
+
