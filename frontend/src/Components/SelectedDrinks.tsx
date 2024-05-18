@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDrink } from '../Pages/DrinkContext'; // Adjust the import path as necessary
 import { Link } from 'react-router-dom';
 
 const SelectedDrinks: React.FC = () => {
+  const navigate = useNavigate();
   const { selectedDrinks, totalPercentage, setSelectedDrinks} = useDrink();
   const [dispensing, setDispensing] = useState(false);
 
@@ -13,7 +15,7 @@ const SelectedDrinks: React.FC = () => {
     setTimeout(() => {
       setDispensing(false);
       setSelectedDrinks([]);
-      alert('Drink dispensed!');
+      navigate('/confirmation');
     }, 2000); // Dispense for 2 seconds
   };
 
