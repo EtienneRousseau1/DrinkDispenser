@@ -10,6 +10,7 @@ interface DrinkContextProps {
   selectedDrinks: SelectedDrink[];
   selectedDrink: string;
   setSelectedDrink: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedDrinks: React.Dispatch<React.SetStateAction<SelectedDrink[]>>; 
   addSelectedDrink: (drink: SelectedDrink) => boolean;
   removeDrink: (name: string) => void;
   clearAllDrinks: () => void; // New function to clear all drinks
@@ -42,7 +43,7 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   return (
-    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, removeDrink, clearAllDrinks, totalPercentage }}>
+    <DrinkContext.Provider value={{ selectedDrinks, selectedDrink, setSelectedDrink, addSelectedDrink, removeDrink, clearAllDrinks, totalPercentage, setSelectedDrinks}}>
       {children}
     </DrinkContext.Provider>
   );
