@@ -8,7 +8,7 @@ const Confirmation: React.FC = () => {
 
   const handleNavigate = () => {
     clearAllDrinks(); // Call the clearAllDrinks function when navigating away from the Confirmation page
-    navigate('/drinkOption');
+    navigate('/home');
   };
 
   return (
