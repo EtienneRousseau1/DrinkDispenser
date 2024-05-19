@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useDrink } from '../Pages/DrinkContext';
 import { Link } from 'react-router-dom';
 
+const drinkMap = new Map();
+drinkMap.set("Water", 0);
+drinkMap.set("Apple Juice", 1);
+drinkMap.set("Cranberry Juice", 2);
+drinkMap.set("Lemonade", 3);
+
+
 const SelectedDrinks: React.FC = () => {
   const ipAddress = "172.20.10.9";
   const DISPENSING_FACTOR = 10000;
@@ -26,10 +33,12 @@ const SelectedDrinks: React.FC = () => {
 
   const handleGoClick = async () => {
     setDispensing(true);
-
     for (let index = 0; index < selectedDrinks.length; index++) {
       const drink = selectedDrinks[index];
-      const valveNum = index; 
+      console.log(drink);
+      const valveNum = drinkMap.get(drink.name);
+      console.log(valveNum);
+      console.log(drinkMap.get("Apple Juice"));
       const duration = Math.round((drink.percentage / totalPercentage) * DISPENSING_FACTOR); 
       const calculatedVolume = (drink.percentage / 100) * cupVolume;
       await openValve(valveNum, duration, index);
@@ -38,7 +47,7 @@ const SelectedDrinks: React.FC = () => {
 
     setTimeout(() => {
       setDispensing(false);
-      alert('Drink dispensed!');
+      navigate("/confirmation");
     }, DISPENSING_FACTOR); // Convert tenths of a second to milliseconds
   };
 
