@@ -12,8 +12,8 @@ import Confirmation from './Pages/Confirmation'
 const AppRouter: React.FC = () => {
   return (
     <Router>
-      <Header />
-      <DrinkProvider>
+     <DrinkProvider>
+        <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />

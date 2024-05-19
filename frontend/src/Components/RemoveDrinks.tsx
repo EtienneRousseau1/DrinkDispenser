@@ -11,7 +11,7 @@ const RemoveDrinks: React.FC = () => {
   };
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/drinkOption');
   };
 
   return (
