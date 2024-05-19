@@ -46,7 +46,6 @@ const SelectedDrinks: React.FC = () => {
 
     setTimeout(() => {
       setDispensing(false);
-      alert('Drink dispensed!');
       navigate('/confirmation');
     }, DISPENSING_FACTOR * 100); // Adjust the timeout as needed
   };
