@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const drinkMap = new Map();
 drinkMap.set("Water", 0);
 drinkMap.set("Apple Juice", 1);
-drinkMap.set("Cranberry Juice", 2);
+drinkMap.set("Peach Juice", 2);
 drinkMap.set("Lemonade", 3);
 
 
@@ -39,8 +39,7 @@ const SelectedDrinks: React.FC = () => {
       const valveNum = drinkMap.get(drink.name);
       console.log(valveNum);
       console.log(drinkMap.get("Apple Juice"));
-      const duration = Math.round((drink.percentage / totalPercentage) * DISPENSING_FACTOR); 
-      const calculatedVolume = (drink.percentage / 100) * cupVolume;
+      const duration = Math.round((drink.percentage / 100) * cupVolume); 
       await openValve(valveNum, duration, index);
       
     }

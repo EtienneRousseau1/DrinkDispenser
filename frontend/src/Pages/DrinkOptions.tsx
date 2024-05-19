@@ -8,7 +8,7 @@ import SelectedDrinks from '../Components/SelectedDrinks';
 const drinks = [
   { src: Gwater, alt: 'Water', title: 'Water' },
   { src: Apple, alt: 'Apple Juice', title: 'Apple Juice' },
-  { src: Cran, alt: 'Cranberry Juice', title: 'Cranberry Juice' },
+  { src: Cran, alt: 'Peach Juice', title: 'Peach Juice' },
   { src: Lemonade, alt: 'Lemonade', title: 'Lemonade' },
 ];
 
