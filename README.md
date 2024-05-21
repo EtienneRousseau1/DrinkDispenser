@@ -4,7 +4,7 @@ Welcome to Drink Dispenser. This is the website that allows anyone to get access
 
 ### Language
 
-This was built with a React Typescript Frontend with Tailwind CSS. We are then using an Arduino to connect the frontend of our website to the physical drink dispenser component.
+This was built with a React Typescript Frontend with Tailwind CSS. We are then using an Arduino to connect the frontend of our website to the physical drink dispenser component. In order for this to work, you must first ensure that the Arduino is set to the right IP Address, and ensure that your computer is on the same network as the arduino. This webpage is designed for a phone view.
 
 ### Getting Started:
 
