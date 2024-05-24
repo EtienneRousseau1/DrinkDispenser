@@ -8,11 +8,15 @@ import Cran from '../images/Cran.png';
 import Option from '../Components/Option';
 import SelectedDrinks from '../Components/SelectedDrinks';
 import PresetOptions from '../Components/PresetOptions';
+import Matty from '../images/Matty Ice.png'; // Corrected path
+import Keshav from '../images/Keshav.png'; // Corrected path
+import Lauren from '../images/Lauren.png'; // Corrected path
+import Baymax from '../images/baymax.png'; // Corrected path
 
 const drinks = [
   { src: Water, alt: 'Water', title: 'Water' },
   { src: Apple, alt: 'Apple Juice', title: 'Apple Juice' },
-  { src: Cran, alt: 'Cran', title: 'Cran' },
+  { src: Cran, alt: 'Cran', title: 'Cranberry Juice' },
   { src: Lemonade, alt: 'Lemonade', title: 'Lemonade' },
 ];
 
@@ -22,7 +26,7 @@ const presets = [
     drinks: [ 
       { name: 'Water', percentage: 100 },  
     ],
-    src: Lemonade // Add appropriate image for each preset
+    src: Matty // Add appropriate image for each preset
   },
   { 
     title: 'Keshav Kombo', 
@@ -32,7 +36,7 @@ const presets = [
       { name: 'Lemonade', percentage: 10 },
       { name: 'Water', percentage: 70 }
     ],
-    src: Cran // Add appropriate image for each preset
+    src: Keshav // Add appropriate image for each preset
   },
   { 
     title: 'Sour Lauren', 
@@ -40,7 +44,7 @@ const presets = [
       { name: 'Cran', percentage: 25 }, 
       { name: 'Lemonade', percentage: 75 } 
     ],
-    src: Apple // Add appropriate image for each preset
+    src: Lauren // Add appropriate image for each preset
   },
   { 
     title: 'Lil Maxies', 
@@ -49,7 +53,7 @@ const presets = [
       { name: 'Cran', percentage: 30 },
       { name: 'Lemonade', percentage: 40 } 
     ],
-    src: Water // Add appropriate image for each preset
+    src: Baymax // Add appropriate image for each preset
   },
 ];
 
