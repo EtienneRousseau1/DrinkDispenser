@@ -22,7 +22,7 @@ const Header: React.FC = () => {
       <header>
         <div className="flex items-center justify-between">
           <span className="cursor-pointer" onClick={handleTroubleShootingClick}>
-            TroubleShooting
+            Help
           </span>
           <div className="flex-grow flex items-center justify-center">
             <img
