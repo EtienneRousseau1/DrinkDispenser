@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDrink } from './DrinkContext';
-import '../index.css';
+import { useDrink } from './DrinkContext'; // Ensure this import is correct
 
 const DrinkPercentage: React.FC = () => {
-  const { selectedDrink, addSelectedDrink } = useDrink();
+  const { addSelectedDrink } = useDrink();
   const [selectedPercentage, setSelectedPercentage] = useState<number>(0);
   const navigate = useNavigate();
 
-  const handleSelectPercentage = (percentage: number) => {
-    const success = addSelectedDrink({ name: selectedDrink, percentage });
-    if (success) {
-      setSelectedPercentage(percentage); // Update the selected percentage
-      navigate('/drinkOption');
-    }
+  const handlePercentageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedPercentage(Number(event.target.value));
+  };
+
+  const handleSubmit = () => {
+    const newDrink = { name: 'Selected Drink', percentage: selectedPercentage };
+    addSelectedDrink(newDrink);
+    navigate('/');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen font-sans">
-      <div className="p-4 text-center">
-        <h2 className="text-5xl font-bold mb-4">Please choose your desired volume</h2>
-        <p className="text-3xl mt-4">Don't overfill! </p>
-        <div className="mt-4">
-          <div className="mb-4">
-            <p className="text-3xl mt-4">Your Selected Drink: <span className="text-3xl mt-4 text-black-500 font-bold">{selectedDrink}</span></p>
-          </div>
-          <div className="flex justify-center space-x-4">
-            {[25, 50, 75, 100].map(percentage => (
-              <button
-                key={percentage}
-                className={`px-4 py-2 border rounded ${selectedPercentage === percentage ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
-                onClick={() => handleSelectPercentage(percentage)}
-              >
-                {percentage}%
-              </button>
-            ))}
-          </div>
+    <div className="h-screen flex item-center justify-center gap-x-16 mx-8">
+      <div className="m-auto">
+        <header className="text-center text-5xl pb-8 font-semibold font-body text-duen-plum"> Set Drink Percentage </header>
+        <div className="flex flex-col items-center">
+          <input 
+            type="number" 
+            value={selectedPercentage} 
+            onChange={handlePercentageChange} 
+            className="p-2 border border-gray-300 rounded-md"
+          />
+          <button 
+            onClick={handleSubmit} 
+            className='bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300 mt-4'
+          >
+            Confirm
+          </button>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default DrinkPercentage;
+

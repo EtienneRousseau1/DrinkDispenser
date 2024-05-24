@@ -7,15 +7,16 @@ interface SelectedDrink {
 
 interface DrinkContextProps {
   selectedDrinks: SelectedDrink[];
-  selectedDrink: string;
-  setSelectedDrink: React.Dispatch<React.SetStateAction<string>>;
-  setSelectedDrinks: React.Dispatch<React.SetStateAction<SelectedDrink[]>>; 
+  setSelectedDrinks: React.Dispatch<React.SetStateAction<SelectedDrink[]>>;
   addSelectedDrink: (drink: SelectedDrink) => boolean;
+  addPresetDrinks: (drinks: SelectedDrink[]) => void;
   removeDrink: (name: string) => void;
   clearAllDrinks: () => void;
   totalPercentage: number;
   cupVolume: number;
   setCupVolume: React.Dispatch<React.SetStateAction<number>>;
+  selectedDrink: string;
+  setSelectedDrink: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const DrinkContext = createContext<DrinkContextProps | undefined>(undefined);
@@ -23,7 +24,7 @@ const DrinkContext = createContext<DrinkContextProps | undefined>(undefined);
 export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [selectedDrinks, setSelectedDrinks] = useState<SelectedDrink[]>([]);
   const [selectedDrink, setSelectedDrink] = useState<string>('Coffee');
-  const [cupVolume, setCupVolume] = useState<number>(0); // Add this state
+  const [cupVolume, setCupVolume] = useState<number>(100);
 
   const totalPercentage = selectedDrinks.reduce((acc, curr) => acc + curr.percentage, 0);
 
@@ -34,6 +35,15 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     }
     setSelectedDrinks((prevDrinks) => [...prevDrinks, drink]);
     return true;
+  };
+
+  const addPresetDrinks = (drinks: SelectedDrink[]) => {
+    const newTotalPercentage = drinks.reduce((acc, curr) => acc + curr.percentage, 0);
+    if (totalPercentage + newTotalPercentage > 100) {
+      alert("Total percentage cannot exceed 100%");
+      return;
+    }
+    setSelectedDrinks((prevDrinks) => [...prevDrinks, ...drinks]);
   };
 
   const removeDrink = (name: string) => {
@@ -47,15 +57,16 @@ export const DrinkProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   return (
     <DrinkContext.Provider value={{ 
       selectedDrinks, 
-      selectedDrink, 
-      setSelectedDrink, 
+      setSelectedDrinks, 
       addSelectedDrink, 
+      addPresetDrinks,
       removeDrink, 
       clearAllDrinks, 
       totalPercentage, 
-      setSelectedDrinks,
       cupVolume, 
-      setCupVolume
+      setCupVolume,
+      selectedDrink,
+      setSelectedDrink
     }}>
       {children}
     </DrinkContext.Provider>
