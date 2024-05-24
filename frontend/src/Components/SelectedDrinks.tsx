@@ -1,52 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDrink } from '../Pages/DrinkContext';
 import { Link } from 'react-router-dom';
 
-const drinkMap = new Map();
-drinkMap.set("Water", 0);
-drinkMap.set("Apple Juice", 1);
-drinkMap.set("Peach Juice", 2);
-drinkMap.set("Lemonade", 3);
-
+const drinkMap = new Map([
+  ["Water", 0],
+  ["Apple Juice", 1],
+  ["Peach Juice", 2],
+  ["Lemonade", 3]
+]);
 
 const SelectedDrinks: React.FC = () => {
   const ipAddress = "172.20.10.9";
   const DISPENSING_FACTOR = 10000;
   const { selectedDrinks, totalPercentage, cupVolume } = useDrink();
   const [dispensing, setDispensing] = useState(false);
+  const [dispensingSuccessful, setDispensingSuccessful] = useState(false);
   const navigate = useNavigate();
+  let confirmTimeout: NodeJS.Timeout;
 
-  const openValve = async (valveNum: number, duration: number, id: number) => {
+  useEffect(() => {
+    return () => {
+      clearTimeout(confirmTimeout);
+    };
+  });
+
+  const openValve = async (valveNum: number | undefined, duration: number, id: number) => {
+    if (valveNum === undefined) return;
+    console.log(`Dispensing ${selectedDrinks[id].name}...`);
+    console.log(`Volume: ${duration} ml`);
     const url = `http://${ipAddress}/dispenseDrink/${valveNum}${id}${duration.toString()}`;
-    console.log(url);
     try {
-      const response = await fetch(url, {
-        method: 'GET',
-        mode: 'no-cors',
-      });
+      const response = await fetch(url, { method: 'GET', mode: 'no-cors' });
+      if (!response.ok) throw new Error('Dispensing failed');
+      setDispensingSuccessful(true); // Set dispensingSuccessful to true if dispensing is successful
     } catch (error) {
       console.error('Error:', error);
+      alert('Dispensing failed. Please try again.'); // Show alert if dispensing fails
+      setDispensing(false);
+      setDispensingSuccessful(false);
     }
   };
 
   const handleGoClick = async () => {
-    if (dispensing) return; // Prevent multiple dispensing processes
     setDispensing(true);
     for (let index = 0; index < selectedDrinks.length; index++) {
-      const drink = selectedDrinks[index];
-      console.log(drink);
-      const valveNum = drinkMap.get(drink.name);
-      console.log(valveNum);
-      console.log(drinkMap.get("Apple Juice"));
-      const duration = Math.round((drink.percentage / 100) * cupVolume); 
+      const { name, percentage } = selectedDrinks[index];
+      const valveNum = drinkMap.get(name);
+      if (valveNum === undefined) continue;
+      const duration = Math.round((percentage / 100) * cupVolume); 
       await openValve(valveNum, duration, index);
     }
 
-    setTimeout(() => {
+    clearTimeout(confirmTimeout);
+    confirmTimeout = setTimeout(() => {
       setDispensing(false);
-      navigate("/confirmation");
-    }, DISPENSING_FACTOR); // Convert tenths of a second to milliseconds
+      if (dispensingSuccessful) {
+        navigate("/confirmation");
+      }
+    }, DISPENSING_FACTOR);
   };
 
   return (
@@ -55,14 +67,14 @@ const SelectedDrinks: React.FC = () => {
       {selectedDrinks.length > 0 ? (
         <>
           <ul>
-            {selectedDrinks.map((drink, index) => (
+            {selectedDrinks.map(({ name, percentage }, index) => (
               <li key={index} className='mb-2'>
-                <span className='font-bold font-body px-4'>{drink.name}</span> - <span className='text-blue-600'>{drink.percentage}%</span>
+                <span className='font-bold font-body px-4'>{name}</span> - <span className='text-blue-600'>{percentage}%</span>
               </li>
             ))}
           </ul>
           <div className='mt-4'>
-            <p className='text-lg font-semibold font-body px-4'>Total Percentage: <span className='text-blue-600 '>{totalPercentage}%</span></p>
+            <p className='text-lg font-semibold font-body px-4'>Total Percentage: <span className='text-blue-600'>{totalPercentage}%</span></p>
           </div>
           <div className='mt-4'>
             <button 
@@ -72,7 +84,7 @@ const SelectedDrinks: React.FC = () => {
             >
               {dispensing ? 'Dispensing drink currently...' : 'Dispense'}
             </button>
-            <Link to="/remove" className={`ml-4 px-4 py-2 rounded ${dispensing ? 'cursor-not-allowed opacity-50' : ''}`} style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
+            <Link to="/remove" className='ml-4 px-4 py-2 rounded' style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
               Delete
             </Link>
           </div>
