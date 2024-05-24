@@ -18,34 +18,36 @@ const drinks = [
 
 const presets = [
   { 
-    title: 'Watery Lemonade', 
+    title: 'Matty Ice', 
     drinks: [ 
-      { name: 'Water', percentage: 50 }, 
-      { name: 'Lemonade', percentage: 50 } 
+      { name: 'Water', percentage: 100 },  
     ],
     src: Lemonade // Add appropriate image for each preset
   },
   { 
-    title: 'Cran Apple', 
+    title: 'Keshav Kombo', 
     drinks: [ 
-      { name: 'Apple Juice', percentage: 30 }, 
-      { name: 'Cran', percentage: 70 } 
+      { name: 'Apple Juice', percentage: 10 }, 
+      { name: 'Cran', percentage: 10 },
+      { name: 'Lemonade', percentage: 10 },
+      { name: 'Water', percentage: 70 }
     ],
     src: Cran // Add appropriate image for each preset
   },
   { 
-    title: 'Lemony Apple', 
+    title: 'Sour Lauren', 
     drinks: [ 
-      { name: 'Apple Juice', percentage: 40 }, 
-      { name: 'Lemonade', percentage: 60 } 
+      { name: 'Cran', percentage: 25 }, 
+      { name: 'Lemonade', percentage: 75 } 
     ],
     src: Apple // Add appropriate image for each preset
   },
   { 
-    title: 'Cran Water', 
+    title: 'Lil Maxies', 
     drinks: [ 
-      { name: 'Water', percentage: 50 }, 
-      { name: 'Cran Juice', percentage: 50 } 
+      { name: 'Apple Juice', percentage: 30 }, 
+      { name: 'Cran', percentage: 30 },
+      { name: 'Lemonade', percentage: 40 } 
     ],
     src: Water // Add appropriate image for each preset
   },
