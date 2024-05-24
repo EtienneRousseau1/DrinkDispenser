@@ -4,7 +4,7 @@ import { useDrink } from '../Pages/DrinkContext';
 interface Preset {
   title: string;
   drinks: { name: string; percentage: number }[];
-  src: string; // Add the image property to the Preset interface
+  src: string;
 }
 
 interface PresetOptionsProps {
@@ -19,16 +19,13 @@ const PresetOptions: React.FC<PresetOptionsProps> = ({ presets }) => {
   }
 
   return (
-    <div className="flex px-16 gap-8">
+    <div className="flex justify-center gap-8">
       {presets.map((preset, index) => (
         <div 
           key={index} 
           onClick={() => handlePresetClick(preset.drinks)} 
           className="cursor-pointer flex flex-col items-center">
-          <img 
-            className="h-20 w-20 rounded-lg object-cover mb-2" 
-            src={preset.src} 
-            alt={preset.title} />
+          <img className="h-20 w-20 rounded-lg object-cover mb-2" src={preset.src} alt={preset.title} />
           <span className="text-center font-body">{preset.title}</span>
         </div>
       ))}

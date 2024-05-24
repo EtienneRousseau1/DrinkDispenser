@@ -15,7 +15,6 @@ const SelectedDrinks: React.FC = () => {
   const DISPENSING_FACTOR = 10000;
   const { selectedDrinks, totalPercentage, cupVolume } = useDrink();
   const [dispensing, setDispensing] = useState(false);
-  const [id, setId] = useState(1);
   const navigate = useNavigate();
 
   const openValve = async (valveNum: number, duration: number, id: number) => {
@@ -32,6 +31,7 @@ const SelectedDrinks: React.FC = () => {
   };
 
   const handleGoClick = async () => {
+    if (dispensing) return; // Prevent multiple dispensing processes
     setDispensing(true);
     for (let index = 0; index < selectedDrinks.length; index++) {
       const drink = selectedDrinks[index];
@@ -41,7 +41,6 @@ const SelectedDrinks: React.FC = () => {
       console.log(drinkMap.get("Apple Juice"));
       const duration = Math.round((drink.percentage / 100) * cupVolume); 
       await openValve(valveNum, duration, index);
-      
     }
 
     setTimeout(() => {
@@ -73,7 +72,7 @@ const SelectedDrinks: React.FC = () => {
             >
               {dispensing ? 'Dispensing drink currently...' : 'Dispense'}
             </button>
-            <Link to="/remove" className='ml-4 px-4 py-2 rounded' style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
+            <Link to="/remove" className={`ml-4 px-4 py-2 rounded ${dispensing ? 'cursor-not-allowed opacity-50' : ''}`} style={{ backgroundColor: '#ef4444', color: '#ffffff' }}>
               Delete
             </Link>
           </div>
