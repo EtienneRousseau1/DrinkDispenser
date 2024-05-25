@@ -36,7 +36,6 @@ const RemoveDrinks: React.FC = () => {
                   <label className='flex items-center cursor-pointer'>
                     <input
                       type='checkbox'
-                      checked={selectedToRemove.includes(drink.name)}
                       onChange={() => handleToggleSelect(drink.name)}
                       className='mr-2 cursor-pointer'
                     />
