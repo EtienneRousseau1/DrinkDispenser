@@ -20,7 +20,7 @@ const Header: React.FC = () => {
   return (
     <div className="py-4 border-b-2 border-neutral-400">
       <header>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-4">
           <span className="cursor-pointer" onClick={handleTroubleShootingClick}>
             Help
           </span>

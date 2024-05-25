@@ -12,7 +12,8 @@ const TroubleShooting: React.FC = () => {
     'No response from the device': [
       'Restart the device.',
       'Ensure that the Arduino IP is the same as your device',
-      'Ensure the device is properly connected with the same IP address as computer running code.'
+      'Ensure the device is properly connected with the same IP address as computer running code.',
+      'Ensure the phone\'s hotspot settings page is actively open, adn the maximize compability setting is enabled.'
     ],
     'Error message on screen': [
       'Refer to the problem for the error code.',
