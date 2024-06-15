@@ -25,9 +25,10 @@ This was built with a React Typescript Frontend with Tailwind CSS. We are then u
 ```sh
    npm run start
    ```
-
 ### Videos
 
-For a visual guide, check out the video of the application [VIDEO]([https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWRqMG00czBwNTMwYWpyYTdkeTB4eTZvNjFpYmw4Nmd3OXRoNjRiOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vqLobCc7OhtcGJt00J/giphy.gif])
+For a visual guide, check out the video of the application:
+
+[![VIDEO](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWRqMG00czBwNTMwYWpyYTdkeTB4eTZvNjFpYmw4Nmd3OXRoNjRiOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vqLobCc7OhtcGJt00J/giphy.gif)](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWRqMG00czBwNTMwYWpyYTdkeTB4eTZvNjFpYmw4Nmd3OXRoNjRiOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vqLobCc7OhtcGJt00J/giphy.gif)
 
 Feel free to reach out if you need any assistance or have any questions! erousseau@ucdavis.edu
