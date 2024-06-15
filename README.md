@@ -26,7 +26,8 @@ This was built with a React Typescript Frontend with Tailwind CSS. We are then u
    npm run start
    ```
 
-### Merging Branches
+### Videos
 
- If you wish to merge please create a pull request and have someone check it out before completeing the merge.
- Delete the branch and create a new one of main after the merge
+For a visual guide, check out the video of the application [VIDEO]([https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWRqMG00czBwNTMwYWpyYTdkeTB4eTZvNjFpYmw4Nmd3OXRoNjRiOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vqLobCc7OhtcGJt00J/giphy.gif])
+
+Feel free to reach out if you need any assistance or have any questions! erousseau@ucdavis.edu
